@@ -2,7 +2,6 @@ package ru.synergy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 
 public class Main {
@@ -58,6 +57,22 @@ public class Main {
         System.out.println(Bio);
         Bio.remove(1);  // Удаление элемента под индексом 1
         System.out.println(Bio);
+        //-------------------------------------------
+        LinkedList<Cars> cars = new LinkedList<Cars>();
+        Cars ferrari = new Cars("Ferarri Spyder");
+        Cars buggati = new Cars("Veyron");
+        Cars mercedes = new Cars("Benz");
+        cars.addAll(Arrays.asList(ferrari,buggati,mercedes));
+        System.out.println(cars);
+        //--------------------------------------------------
+        cars.addFirst(new Cars("Ford GT40")); // Добавление в начало
+        cars.addLast(new Cars("Fiat")); // Добавление в начало
+        System.out.println(cars);
+        cars.pollFirst(); // Взятие значения с концами
+        System.out.println(cars);
+
+
+
 
     }
 }
