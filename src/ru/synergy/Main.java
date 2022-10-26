@@ -25,9 +25,23 @@ public class Main {
             catsList.add(cats); // Добавление элементов в динамический массив
         }
         //-----------------------------------------
+        // Операции над массивом
         catsList.add( new Cats("Бегемот 2")); // Добавление элемента в динамический массив
+        catsList.remove(1); // Удаление элемента у которого индекс равен 1
+        Cats cat1 = catsList.get(0); // Взятие элемента по индексу
+        System.out.println(cat1); // Вывод элемента по индексу
+        System.out.println( "Вывод индекса: " + catsList.indexOf(cat1)); // Вывод индекса элемента
+
+        catsList.add(2,cat1); // Вставка элемента в указанный индекс
+        catsList.set(2,new Cats("Меня сюда вставили")); // Вставка элемента в указанный индекс
+
+        //Удаление всех элементов массива
+        //catsList.removeAll(catsList); // Удаление всего массива
+        catsList.removeAll(Arrays.asList(cat1,catsList.get(3))); // Удаление опреленного элемента массива
+        //----------------------------------------
         System.out.println(catsList.toString()); //
         //-----------------------------------------
+        System.out.println(catsList.size()); // Длинна массива
 
     }
 }
