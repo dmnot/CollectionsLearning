@@ -3,6 +3,7 @@ package ru.synergy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 
 public class Main {
 
@@ -10,7 +11,6 @@ public class Main {
 	// write your code here
         Cats[] cat = new Cats[3]; //Создание массива для трех элементов
         //------------------------------------------
-
         cat[0] = new Cats("Томас");
         cat[1] = new Cats("Бегемот");
         cat[2] = new Cats("Филипп Маркович");
@@ -42,6 +42,22 @@ public class Main {
         System.out.println(catsList.toString()); //
         //-----------------------------------------
         System.out.println(catsList.size()); // Длинна массива
+
+        //------------------------------------------------------------
+        // LinkedList
+        LinkedList<String> Bio = new LinkedList<>(); // Создание  ссылочного массива
+        //------------------------------------------
+        String str1 = "Hi World";
+        String str2 = "My name is Dmitry";
+        String str3 = "I love java/py";
+        //------------------------------------------
+        Bio.add(str1); // Добавление элемента в массив
+        Bio.add(str2);
+        Bio.add(str3);
+        //------------------------------------------
+        System.out.println(Bio);
+        Bio.remove(1);  // Удаление элемента под индексом 1
+        System.out.println(Bio);
 
     }
 }
