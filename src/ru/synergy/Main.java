@@ -1,9 +1,6 @@
 package ru.synergy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -26,8 +23,8 @@ public class Main {
         }
         //-----------------------------------------
         // Операции над массивом
-        catsList.add( new Cats("Бегемот 2")); // Добавление элемента в динамический массив
-        catsList.remove(1); // Удаление элемента у которого индекс равен 1
+        catsList.add( new Cats("Бегемот")); // Добавление элемента в динамический массив
+        //catsList.remove(1); // Удаление элемента у которого индекс равен 1
         Cats cat1 = catsList.get(0); // Взятие элемента по индексу
         System.out.println(cat1); // Вывод элемента по индексу
         System.out.println( "Вывод индекса: " + catsList.indexOf(cat1)); // Вывод индекса элемента
@@ -37,7 +34,7 @@ public class Main {
 
         //Удаление всех элементов массива
         //catsList.removeAll(catsList); // Удаление всего массива
-        catsList.removeAll(Arrays.asList(cat1,catsList.get(3))); // Удаление опреленного элемента массива
+        //catsList.removeAll(Arrays.asList(cat1,catsList.get(3))); // Удаление опреленного элемента массива
         //----------------------------------------
         System.out.println(catsList.toString()); //
         //-----------------------------------------
@@ -72,7 +69,7 @@ public class Main {
         cars.pollFirst(); // Взятие значения с концами
         System.out.println(cars);
         //---------------------------------------------------------
-        //ArrayList vs LinkedList
+      /*  //ArrayList vs LinkedList
         List<Integer> list = new LinkedList<Integer>(); // Создание  ссылочного массива
 
         for (int i =0; i<5000000;i++){
@@ -95,9 +92,32 @@ public class Main {
         for (int i =0; i<100;i++){
             listarray.add(2000000,Integer.MAX_VALUE); // Заполнение массива пока индекс не будет равен 2000000
         }
-        System.out.println("ArrayList time in millis: " + (System.currentTimeMillis() -start));
+        System.out.println("ArrayList time in millis: " + (System.currentTimeMillis() -start));*/
+        //-------------------------------------------------------------------------------------
+        // Set
+        Set<String> states = new HashSet<>(); // Создание set'a принимающий строку
+        //Добавление элементов в set
+        states.add("Germany");
+        states.add("Italy");
+        states.add("France");
+        //--------------------------------------------
+        // Проверка, был ли добавлен элемент Italy
+        boolean isAdded = states.add("Italy");
+        System.out.println("Italy is Added: "  + isAdded);
+        //--------------------------------------------
+        System.out.println("Set contains: " + states.size()); // Вывод количества элементов в set'e
 
+        System.out.println(states);
 
-
+        states.remove("France"); // Удаление происходит только с указанием того что надо удалить(без индексов)
+        System.out.println(states);
+        //-----------------------------------------------------------
+        HashSet<Cats> catsHashSet = new HashSet<>(catsList); // Создание set'a принимающий список с котами
+        System.out.println(catsHashSet); // Вывод списка с котами без повтора
+        //--------------------------------------------------------------------------
+        //Tree Set
+        TreeSet<Cats> catsTreeSet = new TreeSet<>(catsList); // Ошибкуа говорящая о том что из объекта неподходящего для дерева была попытка создать дерево объектов
+        // А также то класс ru.synergy не использует методы из Comparable?
+        System.out.println(catsTreeSet);
     }
 }

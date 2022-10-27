@@ -1,6 +1,8 @@
 package ru.synergy;
 
-public class Cats {
+import java.util.Objects;
+
+public class Cats  implements  Comparable<Cats>{
    //-----------------------
      private String name;
    //-----------------------
@@ -23,4 +25,23 @@ public class Cats {
                 "name='" + name + '\'' +
                 '}';
     }
+    // Метод сравнивающий ссылки
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cats cats = (Cats) o;
+        return Objects.equals(name, cats.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public int compareTo(Cats o) {
+        return this.name.compareTo(o.name);
+    }
+    //-------------------------------------
 }
